@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+
+<div class="main-wrapper login-body">
+    <div class="login-wrapper">
+        <div class="container">
+            <div class="loginbox">
+                <div class="login-left">
+                    <img class="img-fluid" src="{% static 'assets/img/login.png' %}" alt="Logo">
+                </div>
+                <div class="login-right">
+                    <div class="login-right-wrap">
+                        <h1>Forgot Password</h1>
+                        <p class="account-subtitle">Enter Your Email For Forgot Password</p>
+                        <form method="post" action="{% url 'otp_send' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label> OTP <span class="login-danger">*</span></label>
+                                <input class="form-control pass-input" type="password" name="otp" required>
+                                <span class="profile-views toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <label> New Password <span class="login-danger">*</span></label>
+                                <input class="form-control pass-input" type="password" name="new_password" required>
+                                <span class="profile-views toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <label> Confirm Password <span class="login-danger">*</span></label>
+                                <input class="form-control pass-input" type="password" name="confirm_password" required>
+                                <span class="profile-views toggle-password"></span>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                            </div>
+                            <div class="row">
+                                <div class="form-group mb-0 col-6">
+                                    <button class="btn btn-outline-primary primary-reset btn-block" type="submit"> <a href="{% url 'signin_page' %}"> Signin </a></button>
+                                </div>
+                                <div class="form-group mb-0 col-6">
+                                    <button class="btn btn-outline-primary primary-reset btn-block" type="submit"> <a href="{% url 'signin_page' %}">Signup</a> </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

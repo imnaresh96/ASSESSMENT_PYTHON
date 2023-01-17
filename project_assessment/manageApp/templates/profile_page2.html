@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_content %}
+<div class="page-wrapper mt-0">
+    <div class="content container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table comman-shadow">
+                    <div class="card-body">
+                        <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+                            <li class="nav-item"><a class="nav-link active" href="#bottom-justified-tab1"
+                                    data-bs-toggle="tab">Profile</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#bottom-justified-tab2"
+                                    data-bs-toggle="tab">Security</a>
+                            </li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="#bottom-justified-tab3" data-bs-toggle="tab">Setting</a></li> -->
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="bottom-justified-tab1">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3 class="page-title">@{{user_data.first_name}}_{{user_data.last_name}}'s
+                                            Account</h3>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <form action="{% url 'profile_update' %}" method="post">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <!-- <h5 class="form-title"><span>@{{user_data.Address}}'s Account</span></h5> -->
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>First Name <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input type="text" name='first_name'
+                                                                    class="form-control" placeholder="First Name"
+                                                                    value="{{user_data.first_name}}" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>Last Name <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input type="text" name="last_name" class="form-control"
+                                                                    placeholder="Last Name"
+                                                                    value="{{user_data.last_name}}" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>Roll Number <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input type="text" class="form-control"
+                                                                    name="roll_number" placeholder="Roll Number"
+                                                                    value="{{roll_user.roll_number}}" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>Date Of Birth <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input class="form-control " name='dateofbirth'
+                                                                    type="date" value="{{user_data.DateOfBirth}}"
+                                                                    placeholder="YYYY-MM-DD" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>Date Of Joining <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input type="date" class="form-control"
+                                                                    name='dateofjoining'
+                                                                    value="{{user_data.DateOfJoining}}"
+                                                                    placeholder="YYYY-MM-DD" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>Address <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input type="text" class="form-control" name="address"
+                                                                    placeholder="Address" value="{{user_data.Address}}"
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="popover-list">
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    data-bs-toggle="tooltip" data-bs-html="true"
+                                                                    title="">
+                                                                    Submit
+                                                                </button>
+                                                                <a href="{% url 'logout' %}">
+                                                                    <button type="button" class="btn btn-primary"
+                                                                        data-bs-toggle="tooltip" data-bs-trigger="click"
+                                                                        data-bs-html="true" data-bs-placement="bottom"
+                                                                        title="" aria-describedby="tooltip98582">
+                                                                        logout
+                                                                    </button></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="bottom-justified-tab2">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3 class="page-title">@{{user_data.first_name}}_{{user_data.last_name}}'s
+                                            Account</h3>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <form action="{% url 'password_reset' %}" method="post">
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <!-- <h5 class="form-title"><span>@{{user_data.Address}}'s Account</span></h5> -->
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>Current Password <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input type="password" name='current_password'
+                                                                    class="form-control" placeholder="current_password"
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>New Password <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input type="password" name='new_password'
+                                                                    class="form-control" placeholder="new_password"
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-4">
+                                                            <div class="form-group local-forms">
+                                                                <label>Confirm Password <span
+                                                                        class="login-danger">*</span></label>
+                                                                <input type="password" name='confirm_password'
+                                                                    class="form-control" placeholder="confirm_password"
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <div class="popover-list">
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    data-bs-toggle="tooltip" data-bs-html="true"
+                                                                    title="">
+                                                                    Submit
+                                                                </button>
+                                                                <a href="{% url 'logout' %}">
+                                                                    <button type="button" class="btn btn-primary"
+                                                                        data-bs-toggle="tooltip" data-bs-trigger="click"
+                                                                        data-bs-html="true" data-bs-placement="bottom"
+                                                                        title="" aria-describedby="tooltip98582">
+                                                                        logout
+                                                                    </button></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
