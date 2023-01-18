@@ -34,6 +34,7 @@ urlpatterns=[
 
     path('book_page/',book_page,name='book_page'),
     path('add_book/',add_book,name='add_book'),
+    path('book_delete/<str:book_name>',book_delete,name='book_delete'),
     #club
     path('add_club/',add_club,name='add_club'),
     path('club_page/',club_page,name='club_page'),

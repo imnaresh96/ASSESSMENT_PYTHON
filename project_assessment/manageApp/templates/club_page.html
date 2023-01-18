@@ -302,7 +302,7 @@
                                         <td>{{S_data.Close_Time}}</td>
                                         <td>{{S_data.Head_Of_Club}}</td>
                                         <td>{{S_data.Contact}}</td>
-                                        <td><a href="club_delete/{{S_data.Club_Name}}">Delete</a></td> 
+                                        <td><a href="{% url 'club_delete' club_name=S_data.Club_Name %}">Delete</a></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

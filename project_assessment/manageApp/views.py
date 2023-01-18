@@ -310,6 +310,12 @@ def club_delete(request,club_name):
     print(request.POST)
     club=Club.objects.get(Club_Name =club_name)
     club.delete()
+    return redirect(club_page)
+
+def book_delete(request,book_name):
+    print(request.POST)
+    book=Book.objects.get(Book_Name =book_name)
+    book.delete()
     return redirect(book_page)
 
 

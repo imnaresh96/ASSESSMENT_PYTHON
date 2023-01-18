@@ -288,6 +288,8 @@
                                             <th>Author Name</th>
                                             <th>Price</th>
                                             <th>Time Period</th>
+                                            <th>Action</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -298,6 +300,7 @@
                                             <td>{{S_data.Author_Name}}</td>
                                             <td>{{S_data.Price}}</td>
                                             <td>{{S_data.Time_Period}}</td>
+                                            <td> <a href="{% url 'book_delete' book_name=S_data.Book_Name %}"> Delete</a></td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>
