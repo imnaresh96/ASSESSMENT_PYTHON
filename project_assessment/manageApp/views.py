@@ -13,14 +13,6 @@ def index(request):
 def blank_page(request):
     return render(request,'blank_page.html',data)
 
-# def add_book_page(request):
-#     return render(request,'add_book_page.html')
-
-def add_club_page(request):
-    return render(request,'add_club_page.html')
-
-
-
 def add_data(request):
     return render(request,'add_data.html')
 
@@ -53,9 +45,6 @@ def signup_page(request):
 
 def forgot_password(request):
     return render(request,'forgot_password.html')
-
-def add_new_student(request):
-    return render (request,'add_new_student.html')
 
 def otp_page(request):
     return render (request,'otp_page.html')
@@ -233,6 +222,7 @@ def forgot_password_page(request):
     except :
         print("invalid Email")
         return redirect(signin_page)
+
 # OTP Creation
 def otp_creation(request):
     otp_number = randint(1000, 9999)
@@ -286,28 +276,6 @@ def book_data(request):
     data['book'] = book
     
 
-def profile_data_load(request):
-    print(request.POST)
-    password = request.POST['password']
-    if password == request.POST['confirm_password']:
-        master = Master.objects.create(Email = request.POST['email'],Password = password)
-        common=Common.objects.create(Master=master)
-        user_roll=Student.objects.create(Common=common)
-        common.Full_Name =' '.join([request.POST['first_name'], request.POST['last_name']])
-        common.DateOfBirth = request.POST['dateofbirth']
-        common.DateOfJoining = request.POST['dateofjoining']
-        common.Address = request.POST['address']
-        user_roll.Roll_Number=request.POST['roll_number']
-
-        master.save()
-        common.save()
-        user_roll.save()
-        return redirect(signin_page)
-    else:
-        print('Both Password Should Be Same')
-        return redirect(add_new_student)
-
-
 # Add Book's    
 def add_book(request):
     print(request.POST)
@@ -340,9 +308,9 @@ def add_club(request):
 
 def club_delete(request,club_name):
     print(request.POST)
-    club=Club.objects.get(Club_Name=club_name)
+    club=Club.objects.get(Club_Name =club_name)
     club.delete()
-    return redirect(club_page)
+    return redirect(book_page)
 
 
 def delete_account(request):
@@ -354,9 +322,5 @@ def delete_account(request):
 #club count
 def club_count(request):
     club = Club.objects.all()
-    club_num=0
-    for m in club:
-        club_num+=1
-        print(m)
-    club_num
+    club
 
