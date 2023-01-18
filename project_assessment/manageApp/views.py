@@ -51,10 +51,6 @@ def teacher(request):
 def signup_page(request):
     return render(request,'signup_page.html')
 
-def new_user(request):
-    return render(request,'new_user.html')
-
-
 def forgot_password(request):
     return render(request,'forgot_password.html')
 
@@ -80,7 +76,7 @@ def profile_page(request):
                 return redirect(profile_page_teacher) #teacher profile page
         except Exception as err:
             print("data not availabe ! submit your data admin side & relogin")
-    return redirect(new_user)
+    return redirect(signin_page)
 
 
 #signup_functionality
@@ -341,23 +337,6 @@ def add_club(request):
     print('successfully')
     return redirect(profile_page_teacher)
     
-
-# Profile Page Update Logic
-def new_user_update(request):
-    print(request.POST)
-    master = Master.objects.get(Email = request.session['email'])
-    common= Common.objects.get(Master = master)
-
-    common.Full_Name = ' '.join([request.POST['first_name'], request.POST['last_name']])
-    common.DateOfBirth = request.POST['dateofbirth']
-    common.DateOfJoining = request.POST['dateofjoining']
-    common.Address = request.POST['address']
-
-    common.save()
-    return redirect(signin_page)
-
-
-
 
 def club_delete(request,club_name):
     print(request.POST)
