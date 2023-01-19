@@ -132,25 +132,21 @@
                     <span class="user-img">
                         <!-- <img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-01.jpg' %}" width="31"alt="Ryan Taylor"> -->
                         <div class="user-text">
-                            <h6>Ryan Taylor</h6>
-                            <p class="text-muted mb-0">Administrator</p>
+                            <h6>{{user_data.Full_Name}}</h6>
+                            <p class="text-muted mb-0"></p>
                         </div>
                     </span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="user-header">
-                        <div class="avatar avatar-sm">
-                            <img src="{% static 'assets/img/profiles/avatar-01.jpg' %}" alt="User Image"
-                                class="avatar-img rounded-circle">
-                        </div>
                         <div class="user-text">
-                            <h6>Ryan Taylor</h6>
-                            <p class="text-muted mb-0">Administrator</p>
+                            <h6>{{user_data.Full_Name}}</h6>
+                            <p class="text-muted mb-0"></p>
                         </div>
                     </div>
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="{% url 'profile_page' %}">My Profile</a>
                     <a class="dropdown-item" href="inbox.html">Inbox</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 </div>
             </li>
 
@@ -174,8 +170,7 @@
                     <li class="submenu">
                         <a href="#"><i class="fas fa-graduation-cap"></i> <span> Students</span> </a>
                         <ul>
-                            <li><a href="students.html">Student List</a></li>
-                            <li><a href="{% url 'student' %}">Student View</a></li>
+                            <li><a href="{% url 'student' %}">Student List</a></li>
                             <li><a href="{% url 'signup_page' %}">Student Add</a></li>
                             <li><a href="{% url 'signin_page' %}">Student Edit</a></li>
                         </ul>

@@ -32,7 +32,7 @@
         <ul class="nav user-menu">
             <li class="nav-item dropdown language-drop me-2">
                 <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
-                    <img src="{% static 'assets/img/icons/header-icon-01.svg" alt="">
+                    <img src="{% static 'assets/img/icons/header-icon-01.svg' %}" alt="">
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="javascript:;"><i class="flag flag-lr me-2"></i>English</a>
@@ -43,7 +43,7 @@
 
             <li class="nav-item dropdown noti-dropdown me-2">
                 <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
-                    <img src="{% static 'assets/img/icons/header-icon-05.svg" alt="">
+                    <img src="{% static 'assets/img/icons/header-icon-05.svg' %}" alt="">
                 </a>
                 <div class="dropdown-menu notifications">
                     <div class="topnav-dropdown-header">
@@ -124,35 +124,23 @@
 
             <li class="nav-item zoom-screen me-2">
                 <a href="#" class="nav-link header-nav-list">
-                    <img src="{% static 'assets/img/icons/header-icon-04.svg" alt="">
+                    <img src="{% static 'assets/img/icons/header-icon-04.svg' %}" alt="">
                 </a>
             </li>
 
             <li class="nav-item dropdown has-arrow new-user-menus">
                 <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                     <span class="user-img">
-                        <img class="rounded-circle" src="{% static 'assets/img/profiles/avatar-01.jpg' %}" width="31"
-                            alt="Ryan Taylor">
                         <div class="user-text">
-                            <h6>Ryan Taylor</h6>
-                            <p class="text-muted mb-0">Administrator</p>
+                            <h6>{{user_data.Full_Name}}</h6>
+                            <p class="text-muted mb-0"></p>
                         </div>
                     </span>
                 </a>
                 <div class="dropdown-menu">
-                    <div class="user-header">
-                        <div class="avatar avatar-sm">
-                            <img src="{% static 'assets/img/profiles/avatar-01.jpg' %}" alt="User Image"
-                                class="avatar-img rounded-circle">
-                        </div>
-                        <div class="user-text">
-                            <h6>Ryan Taylor</h6>
-                            <p class="text-muted mb-0">Administrator</p>
-                        </div>
-                    </div>
-                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="{% url 'profile_page' %}">My Profile</a>
                     <a class="dropdown-item" href="inbox.html">Inbox</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 </div>
             </li>
 
@@ -175,8 +163,7 @@
                     <li class="submenu">
                         <a href="#"><i class="fas fa-graduation-cap"></i> <span> Students</span> </a>
                         <ul>
-                            <li><a href="students.html">Student List</a></li>
-                            <li><a href="{% url 'student' %}">Student View</a></li>
+                            <li><a href="{% url 'student' %}">Student List</a></li>
                             <li><a href="{% url 'signup_page' %}">Student Add</a></li>
                             <li><a href="{% url 'signin_page' %}">Student Edit</a></li>
                         </ul>
@@ -186,7 +173,6 @@
                                 ></span></a>
                         <ul>
                             <li><a href="{% url 'teacher' %}">Teacher List</a></li>
-                            <!-- <li><a href="{% url 'teacher' %}">Teacher View</a></li> -->
                             <li><a href="{% url 'signup_page' %}">Teacher Add</a></li>
                             <li><a href="{% url 'signin_page' %}">Teacher Edit</a></li>
                         </ul>
